@@ -5,12 +5,12 @@ import { useState, useEffect } from "react";
 
 const loadContract = (contractName, signer) => {
   const newContract = new Contract(
-    require(`../contracts/${contractName}.address.js`),
-    require(`../contracts/${contractName}.abi.js`),
+    require(`../../../contracts/${contractName}.address.js`),
+    require(`../../../contracts/${contractName}.abi.js`),
     signer,
   );
   try {
-    newContract.bytecode = require(`../contracts/${contractName}.bytecode.js`);
+    newContract.bytecode = require(`../../../contracts/${contractName}.bytecode.js`);
   } catch (e) {
     console.log(e);
   }
