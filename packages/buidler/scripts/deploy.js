@@ -1,8 +1,10 @@
 const fs = require("fs");
 const chalk = require("chalk");
-const { config, ethers } = require("@nomiclabs/buidler");
+const { config, ethers, buidlerArguments } = require("@nomiclabs/buidler");
 
 const web3Abi = require("web3-eth-abi");
+
+const deployer = '0xc783df8a850f42e7f7e57013759c285caa701eb6'
 
 async function main() {
   console.log("📡 Deploy \n");
@@ -53,7 +55,7 @@ async function main() {
   // mint to other user to test erc1155 works
 
   await MuseToken.mint(
-    "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266",
+    deployer,
     "1000000000000000000000"
   );
 
@@ -72,7 +74,7 @@ async function main() {
   await VNFT.createItem("cheat", 1, 10000, threeDays);
   console.log("🚀 added item diamond \n");
 
-  await VNFT.mint("0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266");
+  await VNFT.mint(deployer);
   console.log("🚀 Minted one vNFT to for test \n");
 
   await MuseToken.approve(VNFT.address, "100000000000000000000000000000000000");
@@ -141,13 +143,13 @@ async function main() {
   );
   console.log("🚀 Granted VNFT Minter Role to PetAirdrop \n");
 
-  await VNFT.mint("0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266");
+  await VNFT.mint(deployer);
 
-  await VNFT.mint("0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266");
+  await VNFT.mint(deployer);
 
-  await VNFT.mint("0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266");
+  await VNFT.mint(deployer);
 
-  await VNFT.mint("0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266");
+  await VNFT.mint(deployer);
 
   let rarity = await VNFTx.rarity(0);
 
