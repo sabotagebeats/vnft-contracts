@@ -257,11 +257,11 @@ async function main() {
   console.log("last startWeek", startWeek.toString());
 
   // @todo that initial hp is alwaours 0
-  await VNFTx.buyAddon(0, 1);
-  await VNFTx.buyAddon(0, 2);
-  await VNFTx.buyAddon(0, 3);
-  await VNFTx.buyAddon(0, 4);
-  await VNFTx.buyAddon(0, 5);
+//   await VNFTx.buyAddon(0, 1);
+//   await VNFTx.buyAddon(0, 2);
+//   await VNFTx.buyAddon(0, 3);
+//   await VNFTx.buyAddon(0, 4);
+//   await VNFTx.buyAddon(0, 5);
 
   rarity = await VNFTx.rarity(0);
   console.log("rarity: ", rarity.toString());
@@ -270,14 +270,14 @@ async function main() {
   console.log("hp: ", hp.toString());
 
   // test unlocked addon
-  let transferLocked = await VNFTx.removeAddon(0, 2);
+  //let transferLocked = await VNFTx.removeAddon(0, 2);
 
-  console.log("transfered unlocked", transferLocked);
+  //console.log("transfered unlocked", transferLocked);
 
   // test locked addon
-  transferLocked = await VNFTx.removeAddon(0, 1);
+  //transferLocked = await VNFTx.removeAddon(0, 1);
 
-  console.log("transfered lock", transferLocked);
+  //console.log("transfered lock", transferLocked);
 
   // return balance of
   const listSize = await VNFTx.addonsBalanceOf(0);
